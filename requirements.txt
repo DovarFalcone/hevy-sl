@@ -1,0 +1,5 @@
+streamlit
+polars
+matplotlib
+seaborn
+pandas  # Required only for converting to Pandas for plotting
