@@ -20,7 +20,7 @@ if "data" in st.session_state:
     st.divider()
 
     # Histogram Section
-    with st.expander("📊 Histogram"):
+    with st.expander("📊 Histogram", expanded=True):
         col = st.selectbox(
             "Select numeric column for histogram", numeric_cols, key="hist_col"
         )
@@ -30,7 +30,7 @@ if "data" in st.session_state:
         st.pyplot(fig)
 
     # Box Plot Section
-    with st.expander("📦 Box Plot"):
+    with st.expander("📦 Box Plot", expanded=True):
         num_col = st.selectbox("Numeric column", numeric_cols, key="box_num")
         cat_col = st.selectbox("Categorical column", category_cols, key="box_cat")
         fig, ax = plt.subplots()
@@ -39,7 +39,7 @@ if "data" in st.session_state:
         st.pyplot(fig)
 
     # Line Chart Section
-    with st.expander("📈 Line Chart"):
+    with st.expander("📈 Line Chart", expanded=True):
         time_col = st.selectbox("Datetime column", datetime_cols, key="line_time")
         metric_col = st.selectbox("Numeric column", numeric_cols, key="line_metric")
         df_sorted = df.sort_values(by=time_col)
@@ -47,7 +47,7 @@ if "data" in st.session_state:
         df_plot[time_col] = pd.to_datetime(df_plot[time_col])
         st.line_chart(df_plot.set_index(time_col))
 
-    with st.expander("🟠 Scatter Plot"):
+    with st.expander("🟠 Scatter Plot", expanded=True):
         x = st.selectbox("X-axis (numeric)", numeric_cols, key="scatter_x")
         y = st.selectbox("Y-axis (numeric)", numeric_cols, key="scatter_y")
         color = st.selectbox(
